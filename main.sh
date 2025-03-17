@@ -6,18 +6,18 @@ main_menu()
 	while [ true ];
 	do
 		echo "================================================"
-	    echo "|                                              |"
+		echo "|                                              |"
 		echo "|        File and Directory Management         |"
-	    echo "|                                              |"
+		echo "|                                              |"
 		echo "================================================"
-	    echo "| 1. List all files and sub-directories        |"
-	    echo "| 2. Create backups                            |" 
-	    echo "| 3. Count the number of files in a directory  |"
-	    echo "| 4. Display disk usage                        |"
-	    echo "| 5. Search for a file                         |"
-	    echo "| 6. Compress files or directories             |"
-    	echo "| 0. Exit                                      |"
-    	echo "================================================"
+		echo "| 1. List all files and sub-directories        |"
+		echo "| 2. Create backups                            |" 
+		echo "| 3. Count the number of files in a directory  |"
+		echo "| 4. Display disk usage                        |"
+		echo "| 5. Search for a file                         |"
+		echo "| 6. Compress files or directories             |"
+		echo "| 0. Exit                                      |"
+		echo "================================================"
 	 #   echo "Please select an option:"
 		read -p "Enter your option: " choice
 
