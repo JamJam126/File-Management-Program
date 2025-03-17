@@ -1,0 +1,32 @@
+# Ignore log files
+script.log
+
+# Ignore backup files
+*.bak
+*.tmp
+
+# Ignore compressed archives
+*.tar.gz
+*.zip
+*.rar
+
+# Ignore system files (macOS, Linux, Windows)
+.DS_Store
+Thumbs.db
+*.swp
+
+# Ignore temporary files from editors and IDEs
+*.vscode/
+*.idea/
+*.sublime-workspace
+*.sublime-project
+*.~*
+
+# Ignore compiled binaries (if you test compiled scripts)
+*.out
+*.exe
+
+
+
+
+
