@@ -1,35 +1,32 @@
-
 #!/bin/bash
-# TODO: Implement file search by name or extension.
-# - Log the action in `script.log`.
-
 
 LOG_FILE="script.log"
-
 log_action() {
     echo "$(date): $1" >> "$LOG_FILE"
 }
 
+# Get user input
 read -p "Enter directory to search (default: current): " dir
-dir=${dir:-.}
-read -p "Enter search term (name or extension, e.g., '*.txt'): " term
+dir=${dir:-.}  # Default to current directory if empty
+read -p "Enter search term (e.g., 'file1' or 'data*'): " term
 
-log_action "Search started in '$dir' for '$term'"
+# Log the start of the search
+log_action "Searching in '$dir' for '$term'"
 
+# Check if the directory exists
 if [ -d "$dir" ]; then
+    # Search for files or folders matching the term
     search_results=$(find "$dir" -name "$term")
+    
+    # Check if any results were found
     if [ -z "$search_results" ]; then
-        echo "No files found matching '$term'."
-        log_action "No files found for '$term' in '$dir'."
+        echo "No matches found for '$term'."
+        log_action "No matches found for '$term' in '$dir'."
     else
         echo "$search_results"
-        log_action "Files found: $search_results"
+        log_action "Matches found: $search_results"
     fi
 else
     echo "Error: Directory '$dir' does not exist."
     log_action "Error: '$dir' does not exist."
 fi
-
-
-
-
