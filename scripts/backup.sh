@@ -1,4 +1,5 @@
 #!/bin/bash
+
 log_file="script.log"
 
 echo "Enter the file or directory you want to back up:"
