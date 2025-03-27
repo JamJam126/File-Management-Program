@@ -1,14 +1,14 @@
 #!/bin/bash
-log_file="script.log"
 
-echo "Enter the directory to count files in:"
+# TODO: Implement file counting in a directory.
+# - Log the action in `script.log`.
+echo "Enter directory path:"
 read dir
 
 if [ -d "$dir" ]; then
-    count=$(find "$dir" -type f | wc -l)
-    echo "Number of files in $dir: $count"
-    echo "$(date) - Counted $count files in $dir" >> "$log_file"
+    count=$(ls -1 "$dir" | wc -l)
+    echo "Number of files: $count"
 else
-    echo "Error: $dir is not a valid directory."
-    echo "$(date) - Failed to count files in $dir: Not a directory" >> "$log_file"
+    echo "Directory not found!"
 fi
+

@@ -1,16 +1,28 @@
 #!/bin/bash
-log_file="script.log"
+LOG_FILE="script.log"
 
-echo "Enter the directory to search in:"
-read dir
-echo "Enter the filename or extension to search for (e.g., *.txt):"
-read search_term
+log_action() {
+    echo "$(date): $1" >> "$LOG_FILE"
+}
+
+# Go to home directory by default
+cd ~
+read -p "Enter directory to search (e.g., Desktop): " dir
+dir="$HOME/$dir"
 
 if [ -d "$dir" ]; then
-    echo "Searching for $search_term in $dir..."
-    find "$dir" -name "$search_term"
-    echo "$(date) - Searched for $search_term in $dir" >> "$log_file"
+    read -p "Enter search term (e.g., 'file1' or 'data'): " term
+    log_action "Search started in '$dir' for '$term'"
+    results=$(find "$dir" -name "*$term*")
+    if [ -z "$results" ]; then
+        echo "No matches found for '$term'."
+        log_action "No matches found for '$term' in '$dir'."
+    else
+        echo "Search results:"
+        echo "$results"
+        log_action "Matches found: $results"
+    fi
 else
-    echo "Error: $dir is not a valid directory."
-    echo "$(date) - Search failed in $dir" >> "$log_file"
+    echo "Directory '$dir' does not exist."
+    log_action "Error: '$dir' does not exist."
 fi

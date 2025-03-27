@@ -1,15 +1,14 @@
 #!/bin/bash
-log_file="script.log"
+# TODO: Implement listing files and directories with detailed information.
+# - Log the action into `script.log`.
 
-echo "Enter the directory to list files from:"
-read dir
-
+LOG_FILE="script.log"
+read -p "Enter directory path (default: current): " dir
+dir=${dir:-.}  
 if [ -d "$dir" ]; then
-    echo "Files and directories in $dir:"
-    ls -lh "$dir"  # This prints the list of files in the specified directory to the terminal
-    echo "$(date) - Listed files in $dir" >> "$log_file"  # Logs the action in script.log
+    echo "Listing files in directory: $dir" >> "$LOG_FILE"
+    echo "$(date): Listing files in directory: $dir" >> "$LOG_FILE"
+    ls -lh "$dir"
 else
-    echo "Error: $dir is not a valid directory."
-    echo "$(date) - Failed to list files in $dir" >> "$log_file"
+    echo "Error: Directory '$dir' does not exist." | tee -a "$LOG_FILE"
 fi
-
