@@ -5,10 +5,7 @@ log_action() {
     echo "$(date): $1" >> "$LOG_FILE"
 }
 
-# Go to home directory by default
-cd ~
 read -p "Enter directory to search (e.g., Desktop): " dir
-dir="$HOME/$dir"
 
 if [ -d "$dir" ]; then
     read -p "Enter search term (e.g., 'file1' or 'data'): " term

@@ -4,10 +4,12 @@ log_file="script.log"
 
 echo "Enter the file or directory you want to back up:"
 read target
-
-backup_name="${target}_backup_$(date +%Y%m%d_%H%M%S).tar.gz"
+backup_dir="./backups"
+backup_name="${backup_dir}/$(basename "target")_backup_$(date +%Y%m%d_%H%M%S).tar.gz"
 
 if [ -e "$target" ]; then
+	mkdir -p "$backup_dir"
+
     tar -czf "$backup_name" "$target"
     echo "Backup created: $backup_name"
     echo "$(date) - Backup created: $backup_name" >> "$log_file"

@@ -5,6 +5,7 @@ main_menu()
 {
 	while [ true ];
 	do
+		echo ""
 		echo "================================================"
 		echo "|                                              |"
 		echo "|        File and Directory Management         |"
@@ -20,7 +21,7 @@ main_menu()
 		echo "================================================"
 	 #   echo "Please select an option:"
 		read -p "Enter your option: " choice
-
+		clear
 		case $choice in
 			1) ./scripts/list_files.sh ;;
 			2) ./scripts/backup.sh ;;
