@@ -42,5 +42,8 @@ This bash script allows you to manage files and directories efficiently. It prov
 ## Logging
 All actions performed by the user are logged in `script.log` in the same directory.
 
+## Backup Directory
+When you create backups, they are compressed into `.tar.gz` archive and stored in the `backups` directory within the project folder
+
 ## Notes
 - Make sure the directories and files you are interacting with have the correct read/write permissions.

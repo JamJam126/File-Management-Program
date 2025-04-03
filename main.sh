@@ -42,6 +42,7 @@ main_menu()
 	done
 }
 
+clear
 
 echo "Starting the Program..."
 main_menu
