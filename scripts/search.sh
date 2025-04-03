@@ -7,14 +7,10 @@ log_action() {
     echo "$(date): $1" >> "$LOG_FILE"
 }
 
-<<<<<<< HEAD
 # Function to search for a term in a given directory
 search_in_directory() 
 {
     read -p "Enter directory to search: " dir
-=======
-read -p "Enter directory to search (e.g., Desktop): " dir
->>>>>>> 1750d1e6091f324753e520493cd0e2e7fd6f1863
 
     # Check if the directory exists
     if [ -d "$dir" ]; then

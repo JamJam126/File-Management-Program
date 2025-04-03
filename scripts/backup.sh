@@ -29,26 +29,10 @@ create_backup() {
 # Prompt for file or directory to back up
 echo "Enter the file or directory you want to back up:"
 read target
-<<<<<<< HEAD
 
 # Call the function to create the backup
 create_backup "$target"
-=======
-backup_dir="./backups"
-backup_name="${backup_dir}/$(basename "target")_backup_$(date +%Y%m%d_%H%M%S).tar.gz"
 
-if [ -e "$target" ]; then
-	mkdir -p "$backup_dir"
-
-    tar -czf "$backup_name" "$target"
-    echo "Backup created: $backup_name"
-    echo "$(date) - Backup created: $backup_name" >> "$log_file"
-else
-    echo "Error: $target does not exist!"
-    echo "$(date) - Backup failed: $target does not exist" >> "$log_file"
-fi
-
->>>>>>> 1750d1e6091f324753e520493cd0e2e7fd6f1863
 
 
 
